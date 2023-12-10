@@ -1,0 +1,84 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
+
+</head>
+<body>
+
+  <div class="container">
+    <div class="card">
+      <div class="card-header text-center">
+        Form Data
+      </div>
+      <div class="card-body">
+          <!-- Start Form -->
+          <form method="POST">
+            {% csrf_token %}
+            <!-- Name Input > type :text -->
+            <div class="row mb-3">
+              <label for="inputEmail3" class="col-sm-2 col-form-label"> your Name: </label>
+              <div class="col-sm-4">
+                <input required type="text" name="name_person" class="form-control" id="inputEmail3">
+              </div>
+            </div>
+            <!-- Dojo location Input > type :Radio with same 'name' -->
+            <fieldset class="row mb-3">
+              <legend class="col-form-label col-sm-2 pt-0">Dojo Location</legend>
+              <div class="col-sm-10">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="radio_location" id="london" value="london" checked>
+                  <label class="form-check-label" for="london">
+                   london
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="radio_location" id="istanbul" value="istanbul">
+                  <label class="form-check-label" for="istanbul">
+                    istanbul
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+            <!-- Favorite Language type:checkbox -->
+            <div class="row mb-3">
+              <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Favorite Language: </label>
+              <div class="col-sm-10 form-check">
+                <input name="language_python" type="checkbox" class="form-check-input" id="colFormLabelSm">
+                <label class="form-check-label" for="inlineFormCheck">
+                  python
+                </label>
+              </div>
+              <div class="col-sm-10 form-check">
+                <input name="language_js" type="checkbox" class="form-check-input" id="colFormLabelSm">
+                <label class="form-check-label" for="inlineFormCheck">
+                  java script
+                </label>
+              </div>
+            </div>
+            <!-- Comment type : textarea -->
+            <div class="row mb-3">
+              <div class="form-floating">
+                <textarea class="form-control" name="comment" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                <label for="floatingTextarea">Comment</label>
+              </div>
+            </div>
+            <!-- Send Data To Server By Submit Form -->
+            <button type="submit" class="btn btn-success">Send me </button>
+            <!-- ./ End Form -->
+        </form>
+      </div>
+    </div>
+  </div>
+   
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</body>
+</html>
